@@ -14,5 +14,5 @@ Client selections arrive through Netlify Forms (form name `proof-selection`).
 
 ## Automation
 - `scrape_autohdr.js`: run in the logged-in browser pane on autohdr.com/listings; returns every active listing's shoot id and photos.
-- `add_shoot.py listings.json`: adds new listings to `shoots/` (once a listing's photo list is stable across two runs) and updates changed ones. State for listings still settling is kept in `state.json`.
+- `add_shoot.py listings.json --now`: adds new listings straight away (without `--now`, a new listing waits until its photo list is stable across two runs) to `shoots/` and updates changed ones. State for listings still settling is kept in `state.json`.
 - Then `python3 build.py`, commit and push; Netlify deploys automatically.

@@ -1,6 +1,7 @@
 """Record AutoHDR listings and decide which are ready to publish.
 
-Usage:  python3 add_shoot.py listings.json
+Usage:  python3 add_shoot.py listings.json [--now]
+  --now  publish new listings straight away (use when Jayce says the job is ready)
 listings.json is a list scraped from AutoHDR Listings, one entry per listing:
   {"listing": "3/39 Globe St Ashgrove, QLD, Australia",
    "shoot_id": "2dfcc1ce-...",
@@ -43,6 +44,7 @@ def parse_listing(name):
 
 def main():
     listings = json.load(open(sys.argv[1]))
+    now = '--now' in sys.argv[2:]
     state = json.load(open(STATE)) if os.path.exists(STATE) else {'pending': {}}
     existing = {}
     for f in glob.glob(os.path.join(HERE, 'shoots', '*.json')):
@@ -63,7 +65,7 @@ def main():
             continue
         sig = [p[0] for p in photos]
         prev = state['pending'].get(sid)
-        if prev != sig:
+        if prev != sig and not now:
             state['pending'][sid] = sig
             out['waiting'].append(L['listing'])
             continue
