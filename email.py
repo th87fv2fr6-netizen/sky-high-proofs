@@ -1,9 +1,8 @@
 """Render the 'photos ready to choose' client email.
 
 Usage: python3 email.py <slug> "<first name>" [--count N]
-Prints JSON: {"subject", "htmlBody", "body", "logo_b64"}.
-The HTML references the logo as cid:att0 (the connector's name for inline attachment 0), so create the Gmail draft with
-attachments=[{"content": logo_b64, "mimeType": "image/png", "filename": "skyhigh.png", "inline": true}].
+Prints JSON: {"subject", "htmlBody", "body"}. The logo is styled text (no image attachment),
+because Apple Mail shows inline attachments a second time at the bottom.
 """
 import json, sys, os, base64, html
 
@@ -21,7 +20,7 @@ def render(slug, first, count=None):
     subject = f"Your photos are ready to choose: {sh['title']}"
     htmlbody = f"""<div style="font-family:Helvetica,Arial,sans-serif;color:#1d1d1f;font-size:15px;line-height:1.6;max-width:560px">
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:560px;font-family:Helvetica,Arial,sans-serif;color:#1d1d1f;font-size:15px;line-height:1.6">
-<tr><td style="padding:8px 0 18px 0"><img src="cid:att0" width="160" alt="Sky High Photography" style="display:block;width:160px;height:auto;border:0"></td></tr>
+<tr><td style="padding:4px 0 18px 0"><table cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:32px;line-height:1;letter-spacing:-0.5px"><span style="color:#a8a7a7">sky</span><span style="color:{RED};font-weight:bold">high</span></td></tr><tr><td align="right" style="font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.2;color:#a8a7a7">photography</td></tr></table></td></tr>
 <tr><td style="padding:0;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:{RED}">Photo proofs</td></tr>
 <tr><td style="padding:2px 0 0 0;font-size:24px;line-height:1.25;font-weight:bold;color:#1d1d1f">{e(sh['title'])}</td></tr>
 {f'<tr><td style="padding:2px 0 0 0;font-size:15px;color:#6e6d6d">{e(sh["addr"])}</td></tr>' if sh.get('addr') else ''}
@@ -42,8 +41,7 @@ def render(slug, first, count=None):
             "3. Press Send my selection at the bottom of the page and add your name.\n\n"
             "Once your selection comes through, I'll deliver the final full-resolution files.\n\n"
             "Thanks,\nJayce\nSky High Photography")
-    logo = base64.b64encode(open(os.path.join(HERE, 'email-logo.png'), 'rb').read()).decode()
-    return dict(subject=subject, htmlBody=htmlbody, body=text, logo_b64=logo)
+    return dict(subject=subject, htmlBody=htmlbody, body=text)
 
 
 if __name__ == '__main__':

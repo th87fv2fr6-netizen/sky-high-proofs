@@ -16,4 +16,4 @@ Client selections arrive through Netlify Forms (form name `proof-selection`).
 - `scrape_autohdr.js`: run in the logged-in browser pane on autohdr.com/listings; returns every active listing's shoot id and photos.
 - `add_shoot.py listings.json --now`: adds new listings straight away (without `--now`, a new listing waits until its photo list is stable across two runs) to `shoots/` and updates changed ones. State for listings still settling is kept in `state.json`.
 - Then `python3 build.py`, commit and push; Netlify deploys automatically.
-- `email.py <slug> "<first name>"`: renders the branded client email (subject, HTML, plain text, inline logo). Create the Gmail draft with the logo as inline attachment 0.
+- `email.py <slug> "<first name>"`: renders the branded client email (subject, HTML, plain text). The logo is styled text, no attachments.
