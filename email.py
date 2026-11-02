@@ -2,7 +2,7 @@
 
 Usage: python3 email.py <slug> "<first name>" [--count N]
 Prints JSON: {"subject", "htmlBody", "body", "logo_b64"}.
-The HTML references the logo as inline attachment 0, so create the Gmail draft with
+The HTML references the logo as cid:att0 (the connector's name for inline attachment 0), so create the Gmail draft with
 attachments=[{"content": logo_b64, "mimeType": "image/png", "filename": "skyhigh.png", "inline": true}].
 """
 import json, sys, os, base64, html
@@ -19,35 +19,23 @@ def render(slug, first, count=None):
     e = html.escape
     greet = f'Hi {e(first)},' if first else 'Hi there,'
     subject = f"Your photos are ready to choose: {sh['title']}"
-    htmlbody = f'''<!doctype html><html><body style="margin:0;padding:0;background:#f4f4f4">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4;padding:24px 12px">
-<tr><td align="center">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:8px;overflow:hidden;font-family:Helvetica,Arial,sans-serif;color:#1d1d1f">
-<tr><td style="padding:28px 32px 8px 32px"><img src="cid:0" width="160" alt="Sky High Photography" style="display:block;width:160px;height:auto;border:0"></td></tr>
-<tr><td style="padding:8px 32px 0 32px">
-<p style="margin:0 0 6px 0;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:{RED}">Photo proofs</p>
-<h1 style="margin:0 0 4px 0;font-size:24px;line-height:1.25;font-weight:bold">{e(sh['title'])}</h1>
-{f'<p style="margin:0;font-size:15px;color:#6e6d6d">{e(sh["addr"])}</p>' if sh.get('addr') else ''}
+    htmlbody = f"""<div style="font-family:Helvetica,Arial,sans-serif;color:#1d1d1f;font-size:15px;line-height:1.6;max-width:560px">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:560px;font-family:Helvetica,Arial,sans-serif;color:#1d1d1f;font-size:15px;line-height:1.6">
+<tr><td style="padding:8px 0 18px 0"><img src="cid:att0" width="160" alt="Sky High Photography" style="display:block;width:160px;height:auto;border:0"></td></tr>
+<tr><td style="padding:0;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:{RED}">Photo proofs</td></tr>
+<tr><td style="padding:2px 0 0 0;font-size:24px;line-height:1.25;font-weight:bold;color:#1d1d1f">{e(sh['title'])}</td></tr>
+{f'<tr><td style="padding:2px 0 0 0;font-size:15px;color:#6e6d6d">{e(sh["addr"])}</td></tr>' if sh.get('addr') else ''}
+<tr><td style="padding:22px 0 0 0">{greet}</td></tr>
+<tr><td style="padding:12px 0 0 0">Your edited photos are ready to review. There are {n} images in the gallery. Have a look through and pick the ones you'd like finalised.</td></tr>
+<tr><td style="padding:22px 0 4px 0">
+<table cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="{RED}" style="background-color:{RED};border-radius:6px;padding:13px 28px"><a href="{url}" style="color:#ffffff;text-decoration:none;font-weight:bold;font-size:16px">View &amp; choose your photos</a></td></tr></table>
 </td></tr>
-<tr><td style="padding:20px 32px 0 32px;font-size:15px;line-height:1.6">
-<p style="margin:0 0 14px 0">{greet}</p>
-<p style="margin:0 0 14px 0">Your edited photos are ready to review. There are {n} images in the gallery. Have a look through and pick the ones you'd like finalised.</p>
-</td></tr>
-<tr><td align="center" style="padding:10px 32px 6px 32px">
-<a href="{url}" style="display:inline-block;background:{RED};color:#ffffff;text-decoration:none;font-weight:bold;font-size:16px;padding:14px 30px;border-radius:6px">View &amp; choose your photos</a>
-</td></tr>
-<tr><td style="padding:18px 32px 0 32px;font-size:14px;line-height:1.6;color:#3a3a3c">
-<p style="margin:0 0 6px 0;font-weight:bold;color:#1d1d1f">How it works</p>
-<p style="margin:0">1. Tap the heart on each photo you'd like.<br>2. Tap any photo to see it larger.<br>3. Press <b>Send my selection</b> at the bottom of the page and add your name.</p>
-<p style="margin:14px 0 0 0">Once your selection comes through, I'll deliver the final full-resolution files.</p>
-</td></tr>
-<tr><td style="padding:22px 32px 28px 32px;font-size:15px;line-height:1.6">
-<p style="margin:0">Thanks,<br><b>Jayce</b><br><span style="color:#6e6d6d">Sky High Photography</span></p>
-</td></tr>
-<tr><td style="padding:14px 32px;background:#fafafa;border-top:1px solid #eeeeee;font-size:12px;color:#8e8e93;line-height:1.5">
-Link not working? Copy this into your browser:<br><a href="{url}" style="color:#8e8e93">{url}</a>
-</td></tr>
-</table></td></tr></table></body></html>'''
+<tr><td style="padding:22px 0 0 0;font-weight:bold">How it works</td></tr>
+<tr><td style="padding:4px 0 0 0;font-size:14px;color:#3a3a3c">1. Tap the heart on each photo you'd like.<br>2. Tap any photo to see it larger.<br>3. Press <b>Send my selection</b> at the bottom of the page and add your name.</td></tr>
+<tr><td style="padding:14px 0 0 0;font-size:14px;color:#3a3a3c">Once your selection comes through, I'll deliver the final full-resolution files.</td></tr>
+<tr><td style="padding:22px 0 24px 0">Thanks,<br><b>Jayce</b><br><span style="color:#6e6d6d">Sky High Photography</span></td></tr>
+<tr><td style="padding:14px 0 0 0;border-top:1px solid #e5e5e5;font-size:12px;color:#8e8e93;line-height:1.5">Link not working? Copy this into your browser:<br><a href="{url}" style="color:#8e8e93">{url}</a></td></tr>
+</table></div>"""
     text = (f"{greet}\n\nYour edited photos for {prop} are ready to review ({n} images). "
             f"Pick the ones you'd like finalised here:\n{url}\n\n"
             "1. Tap the heart on each photo you'd like.\n2. Tap any photo to see it larger.\n"
