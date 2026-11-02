@@ -47,7 +47,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tab:focus-visible,.heart:focus-visible,.btn:focus-visible,.frame:focus-visible,.lb button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .grid{columns:4 280px;column-gap:12px;padding-block:18px}
 .card{break-inside:avoid;margin-bottom:12px;position:relative;border-radius:6px;overflow:hidden;background:var(--surface)}
-.frame{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.frame{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;position:relative}
+.frame::after,.wm::after{content:"";position:absolute;inset:0;pointer-events:none;background:url(/watermark.png) center/52% auto no-repeat;opacity:.55;filter:drop-shadow(0 1px 3px rgba(0,0,0,.55))}
+.frame img,.lb img{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .frame img{display:block;width:100%;height:auto}
 .meta{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end;padding:10px;pointer-events:none;
   background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,0))}
@@ -81,7 +83,8 @@ footer{padding-block:30px;color:var(--muted);font-size:13px;border-top:1px solid
   padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
 .lb header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;font-family:var(--mono);font-size:13px}
 .lb .stage{display:flex;align-items:center;justify-content:center;min-height:0;padding:0 56px;position:relative}
-.lb .stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px}
+.lb .wm{position:relative;display:inline-block;line-height:0;max-width:100%}
+.lb .stage img{max-width:100%;max-height:calc(100dvh - 150px);object-fit:contain;border-radius:4px}
 .lb button{background:rgba(255,255,255,.12);border:0;color:#fff;border-radius:50%;width:44px;height:44px;cursor:pointer;display:grid;place-items:center;font-size:20px}
 .lb .prev,.lb .next{position:absolute;top:50%;transform:translateY(-50%)}
 .lb .prev{left:6px}.lb .next{right:6px}
@@ -140,7 +143,7 @@ footer{padding-block:30px;color:var(--muted);font-size:13px;border-top:1px solid
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
   <header><span id="lbnum"></span><button id="lbclose" aria-label="Close">✕</button></header>
-  <div class="stage"><button class="prev" id="lbprev" aria-label="Previous photo">‹</button><img id="lbimg" alt="" referrerpolicy="no-referrer"><button class="next" id="lbnext" aria-label="Next photo">›</button></div>
+  <div class="stage"><button class="prev" id="lbprev" aria-label="Previous photo">‹</button><span class="wm"><img id="lbimg" alt="" referrerpolicy="no-referrer" draggable="false"></span><button class="next" id="lbnext" aria-label="Next photo">›</button></div>
   <footer><button class="pickbtn" id="lbpick">♡ Select</button></footer>
 </div>
 
@@ -157,7 +160,7 @@ const save=()=>{try{localStorage.setItem('3-39-globe-st-ashgrove-picks',JSON.str
 let filter='all', view=[];
 const grid=document.getElementById('grid');
 function cardHTML(p){const [i,n,w,h]=p;return `<figure class="card${picked.has(i)?' picked':''}" data-i="${i}" style="margin-inline:0">
-<button class="frame" data-open="${i}" aria-label="View photo ${i}"><img src="${src(i)}" width="${w}" height="${h}" loading="lazy" referrerpolicy="no-referrer" alt="3/39 Globe St, photo ${i}"></button>
+<button class="frame" data-open="${i}" aria-label="View photo ${i}"><img src="${src(i)}" width="${w}" height="${h}" loading="lazy" referrerpolicy="no-referrer" draggable="false" alt="3/39 Globe St, photo ${i}"></button>
 <figcaption class="meta"><span class="num">${label(i)}</span><button class="heart" data-pick="${i}" aria-pressed="${picked.has(i)}" aria-label="Select photo ${i}">${HEART}</button></figcaption></figure>`}
 function render(){
   view=P.filter(p=>filter==='all'||(filter==='p'?picked.has(p[0]):p[4]===filter));
@@ -227,6 +230,7 @@ document.addEventListener('keydown',e=>{if(lbIdx<0)return;
   else if(e.key===' '||e.key.toLowerCase()==='s'){e.preventDefault();toggle(view[lbIdx][0])}});
 let tx=null;lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
 lb.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)step(dx<0?1:-1);tx=null});
+document.addEventListener('contextmenu',e=>{if(e.target.closest('.frame,.lb .stage'))e.preventDefault()});
 render();
 </script>
 

@@ -45,8 +45,8 @@ def page(sh, base):
     t = rep(t, 'alt="The Bonobo, photo ${i}"', f'alt="{sh["title"]}, photo ${{i}}"')
     t = rep(t, "lbimg.alt='The Bonobo, photo '", f"lbimg.alt='{sh['title']}, photo '")
     t = rep(t, "const txt='The Bonobo, 116 Jonson St, Byron Bay: '", "const txt=PROPERTY+': '")
-    t = rep(t, 'loading="lazy" alt=', 'loading="lazy" referrerpolicy="no-referrer" alt=')
-    t = rep(t, '<img id="lbimg" alt="">', '<img id="lbimg" alt="" referrerpolicy="no-referrer">')
+    t = rep(t, 'loading="lazy" draggable=', 'loading="lazy" referrerpolicy="no-referrer" draggable=')
+    t = rep(t, '<img id="lbimg" alt=""', '<img id="lbimg" alt="" referrerpolicy="no-referrer"')
     t = rep(t, '<link rel="preconnect" href="https://fonts.googleapis.com">',
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://d12d7k64f4jt1d.cloudfront.net">')
     t = rep(t, 'src="logo.png"', 'src="/logo.png"')
