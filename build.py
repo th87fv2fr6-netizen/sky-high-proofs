@@ -68,7 +68,7 @@ def page(sh, base):
     <button class="btn primary" type="submit" id="sendgo">Send</button>
   </form>
   <div class="listbox" id="listbox" hidden>''')
-    t = rep(t, '.toast{', '''.sendbox{max-width:1400px;margin:10px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 12px;align-items:end}
+    t = rep(t, '.toast{', '''.sendbox{flex-basis:100%;margin:4px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 12px;align-items:end}
 .sendbox label{font-size:12px;color:var(--muted);display:block}
 .sendbox input{width:100%;font:14px var(--body);padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);margin-top:4px}
 .toast{''')
