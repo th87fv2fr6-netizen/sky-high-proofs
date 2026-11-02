@@ -30,7 +30,7 @@ def render(slug, first, count=None):
 <table cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="{RED}" style="background-color:{RED};border-radius:6px;padding:13px 28px"><a href="{url}" style="color:#ffffff;text-decoration:none;font-weight:bold;font-size:16px">View &amp; choose your photos</a></td></tr></table>
 </td></tr>
 <tr><td style="padding:22px 0 0 0;font-weight:bold">How it works</td></tr>
-<tr><td style="padding:4px 0 0 0;font-size:14px;color:#3a3a3c">1. Tap the heart on each photo you'd like.<br>2. Tap any photo to see it larger.<br>3. Press <b>Send my selection</b> at the bottom of the page and add your name.</td></tr>
+<tr><td style="padding:4px 0 0 0;font-size:14px;color:#3a3a3c">1. Tap the heart on each photo you'd like.<br>2. Tap any photo to see it larger.<br>3. Press <b>Send my selection</b> at the top of the page and add your name.</td></tr>
 <tr><td style="padding:14px 0 0 0;font-size:14px;color:#3a3a3c">Once your selection comes through, I'll deliver the final full-resolution files.</td></tr>
 <tr><td style="padding:22px 0 24px 0">Thanks,<br><b>Jayce</b><br><span style="color:#6e6d6d">Sky High Photography</span></td></tr>
 <tr><td style="padding:14px 0 0 0;border-top:1px solid #e5e5e5;font-size:12px;color:#8e8e93;line-height:1.5">Link not working? Copy this into your browser:<br><a href="{url}" style="color:#8e8e93">{url}</a></td></tr>
@@ -38,7 +38,7 @@ def render(slug, first, count=None):
     text = (f"{greet}\n\nYour edited photos for {prop} are ready to review ({n} images). "
             f"Pick the ones you'd like finalised here:\n{url}\n\n"
             "1. Tap the heart on each photo you'd like.\n2. Tap any photo to see it larger.\n"
-            "3. Press Send my selection at the bottom of the page and add your name.\n\n"
+            "3. Press Send my selection at the top of the page and add your name.\n\n"
             "Once your selection comes through, I'll deliver the final full-resolution files.\n\n"
             "Thanks,\nJayce\nSky High Photography")
     return dict(subject=subject, htmlBody=htmlbody, body=text)
