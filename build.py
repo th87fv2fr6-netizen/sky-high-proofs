@@ -13,6 +13,8 @@ Each shoot is one JSON file in shoots/:
   }
 
 Photos are shown straight from AutoHDR's preview server, so nothing is copied.
+Exception: shoots with "local_images": true (AutoHDR's new editor, which only serves
+1-hour signed links) keep 800px WebP copies in site/<slug>/img/.
 Run:  python3 build.py   -> writes site/<slug>/index.html for every shoot.
 Logo lives at site/logo.png.
 """
@@ -29,7 +31,7 @@ def rep(t, a, b):
 
 
 def display_name(f):
-    return re.sub(r'(_replaced_camera)?\.jpe?g$', '', f, flags=re.I)
+    return re.sub(r'(_replaced_camera)?\.(jpe?g|webp)$', '', f, flags=re.I)
 
 
 def page(sh, base):
@@ -95,6 +97,8 @@ document.getElementById('copy').addEventListener('click',async()=>{''')
 
 
 def base_url(sh):
+    if sh.get('local_images'):
+        return 'img/'
     return CDN + sh['shoot_id'] + '/processed/'
 
 

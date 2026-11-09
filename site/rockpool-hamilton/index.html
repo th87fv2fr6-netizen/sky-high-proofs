@@ -1,0 +1,239 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex">
+<link rel="icon" href="/logo.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<form name="proof-selection" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="property"><input name="name"><input name="email"><input name="note"><input name="count"><textarea name="selection"></textarea></form>
+<title>Rockpool Hamilton Proofs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://d12d7k64f4jt1d.cloudfront.net">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark lightbox-table gallery. Slim brand bar, address headline, filter row, masonry contact sheet, sticky shortlist tray. */
+:root{
+  --bg:#f4f4f4; --surface:#ffffff; --fg:#1d1d1f; --muted:#6e6d6d; --line:#dcdbdb;
+  --accent:#ec1c24; --accent-ink:#ffffff; --pick:#ec1c24;
+  --display:"Ubuntu",ui-sans-serif,system-ui,sans-serif;
+  --body:"Ubuntu",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#161616; --surface:#202020; --fg:#f1f1f1; --muted:#a8a7a7; --line:#333232;
+  --accent:#ff3b42; --accent-ink:#ffffff; --pick:#ff3b42; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161616; --surface:#202020; --fg:#f1f1f1; --muted:#a8a7a7; --line:#333232;
+  --accent:#ff3b42; --accent-ink:#ffffff; --pick:#ff3b42; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-bottom:24px}
+.wrap{max-width:1400px;margin:0 auto}
+.logo{display:block;line-height:0}
+.logo img{width:100%;max-width:420px;height:auto}
+.brandside{display:grid;justify-items:end;gap:10px;min-width:0}
+.contact{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+.hero{padding-block:44px 28px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:center}
+.intro{display:grid;gap:14px;min-width:0}
+@media (max-width:760px){.hero{grid-template-columns:1fr;gap:20px;padding-block:24px}.brandside{order:-1;justify-items:start}.logo img{max-width:240px}.contact{display:none}}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,6vw,64px);line-height:1;letter-spacing:-.03em;margin:0;text-wrap:balance}
+.addr{font-size:18px;color:var(--muted);margin:0}
+.how{max-width:62ch;margin:6px 0 0;color:var(--fg)}
+.how b{color:var(--pick)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding-block:14px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{font:500 14px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:7px 14px;border-radius:999px;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tab .n{font-family:var(--mono);font-size:12px;opacity:.7;margin-left:4px}
+.tab:focus-visible,.heart:focus-visible,.btn:focus-visible,.frame:focus-visible,.lb button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.grid{columns:4 280px;column-gap:12px;padding-block:18px}
+.card{break-inside:avoid;margin-bottom:12px;position:relative;border-radius:6px;overflow:hidden;background:var(--surface)}
+.frame{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;position:relative}
+.frame::after,.wm::after{content:"";position:absolute;inset:0;pointer-events:none;background:url(/watermark.png) center/52% auto no-repeat;opacity:.55;filter:drop-shadow(0 1px 3px rgba(0,0,0,.55))}
+.frame img,.lb img{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.frame img{display:block;width:100%;height:auto}
+.meta{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end;padding:10px;pointer-events:none;
+  background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,0))}
+.num{font-family:var(--mono);font-size:12px;color:#fff;letter-spacing:.04em}
+.heart{pointer-events:auto;width:40px;height:40px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;
+  background:rgba(255,255,255,.92);color:#151a1e;transition:transform .15s}
+.heart svg{width:20px;height:20px}
+.heart:hover{transform:scale(1.08)}
+.card.picked{outline:3px solid var(--pick);outline-offset:-3px}
+.card.picked .heart{background:var(--pick);color:#fff}
+.card.picked .heart svg path{fill:currentColor}
+.empty{padding:60px 0;text-align:center;color:var(--muted)}
+.tray{display:contents}
+.tray .in{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-left:auto}
+.count{font-family:var(--display);font-weight:500;font-size:18px}
+.count span{color:var(--pick);font-variant-numeric:tabular-nums}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:600 14px var(--body);padding:10px 16px;border-radius:6px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.listbox{flex-basis:100%;margin:4px 0 0}
+.listbox textarea{width:100%;min-height:90px;font:12px/1.5 var(--mono);background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:10px;resize:vertical}
+.sendbox{flex-basis:100%;margin:4px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 12px;align-items:end}
+.sendbox label{font-size:12px;color:var(--muted);display:block}
+.sendbox input{width:100%;font:14px var(--body);padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);margin-top:4px}
+.toast{font-family:var(--mono);font-size:12px;color:var(--accent)}
+footer{padding-block:30px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(6,9,11,.94);display:grid;grid-template-rows:auto 1fr auto;color:#fff;
+  padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+.lb header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;font-family:var(--mono);font-size:13px}
+.lb .stage{display:flex;align-items:center;justify-content:center;min-height:0;padding:0 56px;position:relative}
+.lb .wm{position:relative;display:inline-block;line-height:0;max-width:100%}
+.lb .stage img{max-width:100%;max-height:calc(100dvh - 150px);object-fit:contain;border-radius:4px}
+.lb button{background:rgba(255,255,255,.12);border:0;color:#fff;border-radius:50%;width:44px;height:44px;cursor:pointer;display:grid;place-items:center;font-size:20px}
+.lb .prev,.lb .next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb .prev{left:6px}.lb .next{right:6px}
+.lb footer{border:0;margin:0;padding:12px 16px;justify-content:center;color:#fff}
+.lb .pickbtn{width:auto;border-radius:999px;padding:0 20px;font:600 14px var(--body);gap:8px;display:flex}
+.lb .pickbtn.on{background:#ec1c24;color:#fff}
+@media (max-width:560px){.lb .stage{padding:0 8px}.lb .prev,.lb .next{top:auto;bottom:-56px;transform:none}}
+@media (prefers-reduced-motion:reduce){.heart{transition:none}}
+</style>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="intro">
+    <div class="eyebrow">Photo proofs</div>
+    <h1>Rockpool Hamilton</h1>
+    <p class="addr">Hamilton QLD</p>
+    <p class="how">Tap the <b>heart</b> on each photo you'd like finalised. Click any photo to view it larger. When you're done, press <b>Send my selection</b> and add your name. It comes straight to us.</p>
+    </div>
+    <div class="brandside">
+      <a class="logo" href="https://www.skyhighphotography.com.au/" target="_blank" rel="noopener"><img src="/logo.png" alt="Sky High Photography" width="640" height="277"></a>
+      <div class="contact">jayce@skyhighphotography.com.au</div>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="tabs" role="group" aria-label="Filter photos">
+      <button class="tab" data-f="all" aria-pressed="true">All<span class="n" id="n-all"></span></button>
+      <button class="tab" data-f="g" aria-pressed="false">Interior &amp; exterior<span class="n" id="n-g"></span></button>
+      <button class="tab" data-f="a" aria-pressed="false">Aerial<span class="n" id="n-a"></span></button>
+      <button class="tab" data-f="p" aria-pressed="false">My selection<span class="n" id="n-p"></span></button>
+    </div>
+    <div class="tray">
+      <div class="in">
+        <div class="count"><span id="cnt">0</span> selected</div>
+        <div class="actions">
+          <button class="btn" id="clear">Clear</button>
+          <button class="btn" id="copy">Copy list</button>
+      <button class="btn primary" id="send">Send my selection</button>
+          <span class="toast" id="toast" aria-live="polite"></span>
+        </div>
+      </div>
+      <form class="sendbox" id="sendbox" hidden>
+    <label>Your name<input id="sname" name="name" required autocomplete="name"></label>
+    <label>Email<input id="semail" name="email" type="email" autocomplete="email"></label>
+    <label>Notes (optional)<input id="snote" name="note"></label>
+    <button class="btn primary" type="submit" id="sendgo">Send</button>
+  </form>
+  <div class="listbox" id="listbox" hidden><textarea id="listtext" readonly aria-label="Your selection"></textarea></div>
+    </div>
+  </div>
+
+  <main class="grid" id="grid"></main>
+  <div class="empty" id="empty" hidden>No photos selected yet. Tap a heart to add one.</div>
+
+  <footer><span>© Sky High Photography · Proof images, low resolution</span><span>Final files delivered in full resolution</span></footer>
+</div>
+
+
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <header><span id="lbnum"></span><button id="lbclose" aria-label="Close">✕</button></header>
+  <div class="stage"><button class="prev" id="lbprev" aria-label="Previous photo">‹</button><span class="wm"><img id="lbimg" alt="" referrerpolicy="no-referrer" draggable="false"></span><button class="next" id="lbnext" aria-label="Next photo">›</button></div>
+  <footer><button class="pickbtn" id="lbpick">♡ Select</button></footer>
+</div>
+
+<script>
+const PROPERTY="Rockpool Hamilton";
+const BASE="img/";
+const P=[[1,"DSC05621",800,534,"g","DSC05621.webp"],[2,"DSC05622",800,534,"g","DSC05622.webp"],[3,"DSC05624",800,534,"g","DSC05624.webp"],[4,"DSC05626",800,534,"g","DSC05626.webp"],[5,"DSC05628",800,534,"g","DSC05628.webp"],[6,"DSC05629",800,534,"g","DSC05629.webp"],[7,"DSC05630",800,534,"g","DSC05630.webp"],[8,"DSC05631",800,534,"g","DSC05631.webp"],[9,"DSC05632",800,534,"g","DSC05632.webp"],[10,"DSC05634",800,538,"g","DSC05634.webp"],[11,"DSC05637",800,534,"g","DSC05637.webp"],[12,"DSC05638",800,534,"g","DSC05638.webp"],[13,"DSC05639",800,534,"g","DSC05639.webp"],[14,"DSC05640",800,534,"g","DSC05640.webp"],[15,"DSC05641",800,534,"g","DSC05641.webp"],[16,"DSC05643",800,534,"g","DSC05643.webp"],[17,"DSC05644",800,534,"g","DSC05644.webp"],[18,"DSC05645",800,534,"g","DSC05645.webp"],[19,"DSC05646",800,534,"g","DSC05646.webp"],[20,"DSC05648",800,537,"g","DSC05648.webp"],[21,"DSC05650",800,534,"g","DSC05650.webp"],[22,"DSC05652",800,534,"g","DSC05652.webp"],[23,"DSC05653",800,534,"g","DSC05653.webp"],[24,"DSC05655",800,1198,"g","DSC05655.webp"],[25,"DSC05656",800,534,"g","DSC05656.webp"],[26,"DSC05658",800,534,"g","DSC05658.webp"],[27,"DSC05660",800,534,"g","DSC05660.webp"],[28,"DSC05661",800,534,"g","DSC05661.webp"],[29,"DSC05663",800,534,"g","DSC05663.webp"],[30,"DSC05664",800,1198,"g","DSC05664.webp"],[31,"DSC05665",800,1198,"g","DSC05665.webp"],[32,"DSC05666",800,1198,"g","DSC05666.webp"],[33,"DSC05667",800,1198,"g","DSC05667.webp"],[34,"DSC05669",800,535,"g","DSC05669.webp"],[35,"DSC05672",800,531,"g","DSC05672.webp"],[36,"DSC05674",800,534,"g","DSC05674.webp"],[37,"DSC05675",800,534,"g","DSC05675.webp"],[38,"DSC05677",800,525,"g","DSC05677.webp"],[39,"DSC05680",800,534,"g","DSC05680.webp"],[40,"DSC05681",800,534,"g","DSC05681.webp"],[41,"DSC05682",800,534,"g","DSC05682.webp"],[42,"DSC05683",800,534,"g","DSC05683.webp"],[43,"DSC05686",800,534,"g","DSC05686.webp"],[44,"DSC05687",800,534,"g","DSC05687.webp"],[45,"DSC05689",800,534,"g","DSC05689.webp"],[46,"DSC05690",800,534,"g","DSC05690.webp"],[47,"DSC05691",800,534,"g","DSC05691.webp"],[48,"DSC05692",800,534,"g","DSC05692.webp"],[49,"DSC05693",800,534,"g","DSC05693.webp"],[50,"DSC05694",800,530,"g","DSC05694.webp"],[51,"DSC05697",800,534,"g","DSC05697.webp"],[52,"DSC05699",800,534,"g","DSC05699.webp"],[53,"DSC05700",800,534,"g","DSC05700.webp"],[54,"DSC05702",800,534,"g","DSC05702.webp"],[55,"DSC05703",800,534,"g","DSC05703.webp"],[56,"DSC05704",800,534,"g","DSC05704.webp"],[57,"DSC05707",800,522,"g","DSC05707.webp"],[58,"DSC05708",800,534,"g","DSC05708.webp"],[59,"DSC05709",800,534,"g","DSC05709.webp"],[60,"DSC05712",800,534,"g","DSC05712.webp"],[61,"DSC05713",800,534,"g","DSC05713.webp"],[62,"DSC05714",800,534,"g","DSC05714.webp"],[63,"DSC05716",800,534,"g","DSC05716.webp"],[64,"DSC05717",800,534,"g","DSC05717.webp"],[65,"DSC05719",800,529,"g","DSC05719.webp"],[66,"DSC05721",800,534,"g","DSC05721.webp"],[67,"DSC05724",800,534,"g","DSC05724.webp"],[68,"DSC05725",800,534,"g","DSC05725.webp"],[69,"DSC05726",800,534,"g","DSC05726.webp"],[70,"DSC05728",800,534,"g","DSC05728.webp"],[71,"DSC05729",800,534,"g","DSC05729.webp"],[72,"DSC05730",800,534,"g","DSC05730.webp"],[73,"DSC05732",800,534,"g","DSC05732.webp"],[74,"DSC05733",800,534,"g","DSC05733.webp"],[75,"DSC05734",800,534,"g","DSC05734.webp"],[76,"DSC05736",800,534,"g","DSC05736.webp"],[77,"DSC05738",800,534,"g","DSC05738.webp"],[78,"DSC05739",800,534,"g","DSC05739.webp"],[79,"DSC05740",800,534,"g","DSC05740.webp"],[80,"DSC05742",800,534,"g","DSC05742.webp"],[81,"DSC05743",800,534,"g","DSC05743.webp"],[82,"DSC05746",800,534,"g","DSC05746.webp"],[83,"DSC05748",800,534,"g","DSC05748.webp"],[84,"DSC05749",800,534,"g","DSC05749.webp"],[85,"DSC05750",800,534,"g","DSC05750.webp"],[86,"DSC05752",800,534,"g","DSC05752.webp"],[87,"DSC05754",800,534,"g","DSC05754.webp"],[88,"DSC05755",800,534,"g","DSC05755.webp"],[89,"DSC05757",800,534,"g","DSC05757.webp"],[90,"DSC05759",800,534,"g","DSC05759.webp"],[91,"DSC05762",800,534,"g","DSC05762.webp"],[92,"DSC05764",800,534,"g","DSC05764.webp"],[93,"DSC05767",800,534,"g","DSC05767.webp"],[94,"DSC05770",800,534,"g","DSC05770.webp"],[95,"DSC05773",800,534,"g","DSC05773.webp"],[96,"DSC05776",800,534,"g","DSC05776.webp"],[97,"DSC05779",800,534,"g","DSC05779.webp"],[98,"DSC05782",800,534,"g","DSC05782.webp"],[99,"DSC05785",800,534,"g","DSC05785.webp"],[100,"DSC05788",800,534,"g","DSC05788.webp"],[101,"DSC05791",800,534,"g","DSC05791.webp"],[102,"DSC05794",800,534,"g","DSC05794.webp"],[103,"DSC05797",800,534,"g","DSC05797.webp"],[104,"DSC05800",800,534,"g","DSC05800.webp"],[105,"DSC05803",800,534,"g","DSC05803.webp"],[106,"DSC05806",800,534,"g","DSC05806.webp"],[107,"DSC05809",800,534,"g","DSC05809.webp"],[108,"DSC05812",800,534,"g","DSC05812.webp"],[109,"DSC05815",800,534,"g","DSC05815.webp"],[110,"DSC05818",800,534,"g","DSC05818.webp"],[111,"DSC05821",800,534,"g","DSC05821.webp"],[112,"DSC05824",800,534,"g","DSC05824.webp"],[113,"DSC05827",800,534,"g","DSC05827.webp"],[114,"DSC05830",800,534,"g","DSC05830.webp"],[115,"DSC05833",800,534,"g","DSC05833.webp"],[116,"DSC05836",800,534,"g","DSC05836.webp"],[117,"DSC05839",800,534,"g","DSC05839.webp"],[118,"DSC05842",800,534,"g","DSC05842.webp"],[119,"DSC05845",800,534,"g","DSC05845.webp"],[120,"DSC05848",800,534,"g","DSC05848.webp"],[121,"DSC05851",800,534,"g","DSC05851.webp"],[122,"DSC05854",800,534,"g","DSC05854.webp"],[123,"DSC05857",800,534,"g","DSC05857.webp"],[124,"DSC05860",800,534,"g","DSC05860.webp"],[125,"DSC05863",800,534,"g","DSC05863.webp"],[126,"DSC05866",800,534,"g","DSC05866.webp"],[127,"DSC05869",800,534,"g","DSC05869.webp"],[128,"DSC05872",800,534,"g","DSC05872.webp"],[129,"DSC05875",800,534,"g","DSC05875.webp"],[130,"DSC05878",800,534,"g","DSC05878.webp"],[131,"DSC05881",800,534,"g","DSC05881.webp"],[132,"DSC05884",800,534,"g","DSC05884.webp"],[133,"DSC05887",800,534,"g","DSC05887.webp"],[134,"DSC05890",800,534,"g","DSC05890.webp"],[135,"DSC05893",800,534,"g","DSC05893.webp"],[136,"DSC05896",800,534,"g","DSC05896.webp"],[137,"DSC05899",800,534,"g","DSC05899.webp"],[138,"DSC05902",800,534,"g","DSC05902.webp"],[139,"DSC05905",800,534,"g","DSC05905.webp"],[140,"DSC05908",800,534,"g","DSC05908.webp"],[141,"DSC05911",800,534,"g","DSC05911.webp"],[142,"DSC05914",800,534,"g","DSC05914.webp"],[143,"DSC05917",800,534,"g","DSC05917.webp"],[144,"DSC05920",800,534,"g","DSC05920.webp"],[145,"DSC05923",800,534,"g","DSC05923.webp"],[146,"DSC05926",800,534,"g","DSC05926.webp"],[147,"DSC05929",800,534,"g","DSC05929.webp"],[148,"DSC05932",800,534,"g","DSC05932.webp"],[149,"DSC05935",800,534,"g","DSC05935.webp"],[150,"DSC05938",800,534,"g","DSC05938.webp"],[151,"DSC05941",800,534,"g","DSC05941.webp"],[152,"DSC05944",800,534,"g","DSC05944.webp"],[153,"DSC05947",800,534,"g","DSC05947.webp"],[154,"DSC05950",800,534,"g","DSC05950.webp"],[155,"DSC05953",800,534,"g","DSC05953.webp"],[156,"DSC05956",800,534,"g","DSC05956.webp"],[157,"DSC05959",800,534,"g","DSC05959.webp"],[158,"DSC05962",800,534,"g","DSC05962.webp"],[159,"DSC05965",800,534,"g","DSC05965.webp"],[160,"DSC05968",800,534,"g","DSC05968.webp"],[161,"DSC05971",800,534,"g","DSC05971.webp"],[162,"DSC05974",800,534,"g","DSC05974.webp"],[163,"DSC05977",800,534,"g","DSC05977.webp"],[164,"DSC05980",800,534,"g","DSC05980.webp"],[165,"DSC05983",800,534,"g","DSC05983.webp"],[166,"DSC05986",800,534,"g","DSC05986.webp"],[167,"DSC05989",800,534,"g","DSC05989.webp"],[168,"DSC05992",800,534,"g","DSC05992.webp"],[169,"DSC05995",800,534,"g","DSC05995.webp"],[170,"DSC05998",800,534,"g","DSC05998.webp"],[171,"DSC06001",800,534,"g","DSC06001.webp"],[172,"DSC06004",800,534,"g","DSC06004.webp"],[173,"DSC06007",800,534,"g","DSC06007.webp"],[174,"DSC06010",800,534,"g","DSC06010.webp"],[175,"DSC06013",800,534,"g","DSC06013.webp"],[176,"DSC06016",800,534,"g","DSC06016.webp"],[177,"DSC06019",800,534,"g","DSC06019.webp"],[178,"DSC06022",800,534,"g","DSC06022.webp"],[179,"DSC06025",800,534,"g","DSC06025.webp"],[180,"DSC06028",800,534,"g","DSC06028.webp"],[181,"DSC06031",800,534,"g","DSC06031.webp"],[182,"DSC06034",800,534,"g","DSC06034.webp"],[183,"DSC06037",800,534,"g","DSC06037.webp"],[184,"DSC06040",800,534,"g","DSC06040.webp"],[185,"DSC06043",800,534,"g","DSC06043.webp"],[186,"DSC06046",800,534,"g","DSC06046.webp"],[187,"DSC06049",800,534,"g","DSC06049.webp"],[188,"DSC06052",800,534,"g","DSC06052.webp"],[189,"DSC06055",800,534,"g","DSC06055.webp"],[190,"DSC06058",800,534,"g","DSC06058.webp"],[191,"DSC06061",800,534,"g","DSC06061.webp"],[192,"DSC06064",800,534,"g","DSC06064.webp"],[193,"DSC06067",800,534,"g","DSC06067.webp"],[194,"DSC06070",800,534,"g","DSC06070.webp"],[195,"DSC06073",800,534,"g","DSC06073.webp"],[196,"DSC06076",800,534,"g","DSC06076.webp"],[197,"DSC06079",800,534,"g","DSC06079.webp"],[198,"DSC06082",800,534,"g","DSC06082.webp"],[199,"DSC06085",800,534,"g","DSC06085.webp"],[200,"DSC06088",800,534,"g","DSC06088.webp"],[201,"DSC06091",800,534,"g","DSC06091.webp"],[202,"DSC06094",800,534,"g","DSC06094.webp"],[203,"DSC06097",800,534,"g","DSC06097.webp"],[204,"DSC06100",800,534,"g","DSC06100.webp"],[205,"DSC06103",800,534,"g","DSC06103.webp"],[206,"DSC06106",800,534,"g","DSC06106.webp"],[207,"DSC06109",800,534,"g","DSC06109.webp"],[208,"DSC06112",800,534,"g","DSC06112.webp"],[209,"DSC06115",800,534,"g","DSC06115.webp"],[210,"DSC06118",800,534,"g","DSC06118.webp"],[211,"DSC06121",800,534,"g","DSC06121.webp"],[212,"DSC06124",800,534,"g","DSC06124.webp"],[213,"DSC06127",800,534,"g","DSC06127.webp"],[214,"DSC06130",800,534,"g","DSC06130.webp"],[215,"DSC06133",800,534,"g","DSC06133.webp"],[216,"DSC06136",800,534,"g","DSC06136.webp"],[217,"DSC06139",800,534,"g","DSC06139.webp"],[218,"DSC06142",800,534,"g","DSC06142.webp"],[219,"DSC06145",800,534,"g","DSC06145.webp"],[220,"DSC06148",800,534,"g","DSC06148.webp"],[221,"DSC06151",800,534,"g","DSC06151.webp"],[222,"DSC06154",800,534,"g","DSC06154.webp"],[223,"DSC06157",800,534,"g","DSC06157.webp"],[224,"DSC06160",800,534,"g","DSC06160.webp"],[225,"DSC06163",800,534,"g","DSC06163.webp"],[226,"DSC06166",800,534,"g","DSC06166.webp"],[227,"DSC06169",800,534,"g","DSC06169.webp"],[228,"DSC06172",800,534,"g","DSC06172.webp"],[229,"DSC06175",800,534,"g","DSC06175.webp"],[230,"DSC06178",800,534,"g","DSC06178.webp"],[231,"DSC06181",800,534,"g","DSC06181.webp"],[232,"DSC06184",800,534,"g","DSC06184.webp"],[233,"DSC06187",800,534,"g","DSC06187.webp"],[234,"DSC06190",800,534,"g","DSC06190.webp"],[235,"DSC06193",800,534,"g","DSC06193.webp"],[236,"DSC06196",800,534,"g","DSC06196.webp"],[237,"DSC06199",800,534,"g","DSC06199.webp"],[238,"DSC06202",800,534,"g","DSC06202.webp"],[239,"DSC06205",800,534,"g","DSC06205.webp"],[240,"DJI_20261106150214_0042_D",800,600,"a","DJI_20261106150214_0042_D.webp"],[241,"DJI_20261106150222_0043_D",800,600,"a","DJI_20261106150222_0043_D.webp"],[242,"DJI_20261106150228_0044_D",800,600,"a","DJI_20261106150228_0044_D.webp"],[243,"DJI_20261106150250_0045_D",800,600,"a","DJI_20261106150250_0045_D.webp"],[244,"DJI_20261106150301_0046_D",800,600,"a","DJI_20261106150301_0046_D.webp"],[245,"DJI_20261106150325_0047_D",800,600,"a","DJI_20261106150325_0047_D.webp"],[246,"DJI_20261106150330_0048_D",800,600,"a","DJI_20261106150330_0048_D.webp"],[247,"DJI_20261106150335_0049_D",800,600,"a","DJI_20261106150335_0049_D.webp"],[248,"DJI_20261106150413_0050_D",800,600,"a","DJI_20261106150413_0050_D.webp"],[249,"DJI_20261106150420_0051_D",800,600,"a","DJI_20261106150420_0051_D.webp"],[250,"DJI_20261106150425_0052_D",800,600,"a","DJI_20261106150425_0052_D.webp"],[251,"DJI_20261106150442_0053_D",800,600,"a","DJI_20261106150442_0053_D.webp"],[252,"DJI_20261106150445_0054_D",800,600,"a","DJI_20261106150445_0054_D.webp"],[253,"DJI_20261106150500_0055_D",800,600,"a","DJI_20261106150500_0055_D.webp"],[254,"DJI_20261106150507_0056_D",800,600,"a","DJI_20261106150507_0056_D.webp"],[255,"DJI_20261106150510_0057_D",800,600,"a","DJI_20261106150510_0057_D.webp"],[256,"DJI_20261106150513_0058_D",800,600,"a","DJI_20261106150513_0058_D.webp"],[257,"DJI_20261106150515_0059_D",800,600,"a","DJI_20261106150515_0059_D.webp"],[258,"DJI_20261106150517_0060_D",800,600,"a","DJI_20261106150517_0060_D.webp"],[259,"DJI_20261106150519_0061_D",800,600,"a","DJI_20261106150519_0061_D.webp"],[260,"DJI_20261106150521_0062_D",800,600,"a","DJI_20261106150521_0062_D.webp"],[261,"DJI_20261106150524_0063_D",800,600,"a","DJI_20261106150524_0063_D.webp"],[262,"DJI_20261106150525_0064_D",800,600,"a","DJI_20261106150525_0064_D.webp"],[263,"DJI_20261106150551_0065_D",800,600,"a","DJI_20261106150551_0065_D.webp"],[264,"DJI_20261106150557_0066_D",800,600,"a","DJI_20261106150557_0066_D.webp"],[265,"DJI_20261106150611_0067_D",800,600,"a","DJI_20261106150611_0067_D.webp"],[266,"DJI_20261106150614_0068_D",800,600,"a","DJI_20261106150614_0068_D.webp"],[267,"DJI_20261106150617_0069_D",800,600,"a","DJI_20261106150617_0069_D.webp"],[268,"DJI_20261106150641_0070_D",800,600,"a","DJI_20261106150641_0070_D.webp"],[269,"DJI_20261106150644_0071_D",800,600,"a","DJI_20261106150644_0071_D.webp"],[270,"DJI_20261106150657_0072_D",800,600,"a","DJI_20261106150657_0072_D.webp"],[271,"DJI_20261106150659_0073_D",800,600,"a","DJI_20261106150659_0073_D.webp"],[272,"DJI_20261106150702_0074_D",800,600,"a","DJI_20261106150702_0074_D.webp"],[273,"DJI_20261106150705_0075_D",800,600,"a","DJI_20261106150705_0075_D.webp"],[274,"DJI_20261106150707_0076_D",800,600,"a","DJI_20261106150707_0076_D.webp"],[275,"DJI_20261106150710_0077_D",800,600,"a","DJI_20261106150710_0077_D.webp"],[276,"DJI_20261106150713_0078_D",800,600,"a","DJI_20261106150713_0078_D.webp"],[277,"DJI_20261106150716_0079_D",800,600,"a","DJI_20261106150716_0079_D.webp"],[278,"DJI_20261106150742_0081_D",800,600,"a","DJI_20261106150742_0081_D.webp"],[279,"DJI_20261106150752_0083_D",800,600,"a","DJI_20261106150752_0083_D.webp"],[280,"DJI_20261106150758_0084_D",800,600,"a","DJI_20261106150758_0084_D.webp"],[281,"DJI_20261106150806_0085_D",800,600,"a","DJI_20261106150806_0085_D.webp"],[282,"DJI_20261106150833_0086_D",800,600,"a","DJI_20261106150833_0086_D.webp"],[283,"DJI_20261106150906_0087_D",800,600,"a","DJI_20261106150906_0087_D.webp"],[284,"DJI_20261106150912_0088_D",800,600,"a","DJI_20261106150912_0088_D.webp"]];
+const HEART='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.5 4.5 7 4.5c2 0 3.5 1.1 5 3 1.5-1.9 3-3 5-3 3.5 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+const src=i=>BASE+P[i-1][5];
+const label=i=>'№ '+String(i).padStart(3,'0');
+let picked=new Set();
+try{(JSON.parse(localStorage.getItem('rockpool-hamilton-picks')||'[]')).forEach(n=>picked.add(n))}catch(e){}
+const save=()=>{try{localStorage.setItem('rockpool-hamilton-picks',JSON.stringify([...picked]))}catch(e){}};
+let filter='all', view=[];
+const grid=document.getElementById('grid');
+function cardHTML(p){const [i,n,w,h]=p;return `<figure class="card${picked.has(i)?' picked':''}" data-i="${i}" style="margin-inline:0">
+<button class="frame" data-open="${i}" aria-label="View photo ${i}"><img src="${src(i)}" width="${w}" height="${h}" loading="lazy" referrerpolicy="no-referrer" draggable="false" alt="Rockpool Hamilton, photo ${i}"></button>
+<figcaption class="meta"><span class="num">${label(i)}</span><button class="heart" data-pick="${i}" aria-pressed="${picked.has(i)}" aria-label="Select photo ${i}">${HEART}</button></figcaption></figure>`}
+function render(){
+  view=P.filter(p=>filter==='all'||(filter==='p'?picked.has(p[0]):p[4]===filter));
+  grid.innerHTML=view.map(cardHTML).join('');
+  document.getElementById('empty').hidden=!(filter==='p'&&view.length===0);
+  counts();
+}
+function counts(){
+  document.getElementById('n-all').textContent=P.length;
+  document.getElementById('n-g').textContent=P.filter(p=>p[4]==='g').length;
+  document.getElementById('n-a').textContent=P.filter(p=>p[4]==='a').length;
+  document.getElementById('n-p').textContent=picked.size;
+  document.getElementById('cnt').textContent=picked.size;
+  document.getElementById('copy').disabled=picked.size===0;document.getElementById('send').disabled=picked.size===0;
+  document.getElementById('listbox').hidden=true;
+}
+function toggle(i){
+  picked.has(i)?picked.delete(i):picked.add(i); save();
+  const c=grid.querySelector(`.card[data-i="${i}"]`);
+  if(c){c.classList.toggle('picked',picked.has(i));c.querySelector('.heart').setAttribute('aria-pressed',picked.has(i))}
+  if(filter==='p'&&!picked.has(i)&&c&&lbIdx<0){c.remove();document.getElementById('empty').hidden=picked.size>0}
+  counts(); lbSync();
+}
+grid.addEventListener('click',e=>{
+  const h=e.target.closest('[data-pick]'); if(h){toggle(+h.dataset.pick);return}
+  const o=e.target.closest('[data-open]'); if(o)openLb(view.findIndex(p=>p[0]===+o.dataset.open));
+});
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  filter=t.dataset.f; document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-pressed',x===t)); render();
+}));
+document.getElementById('clear').addEventListener('click',()=>{picked.clear();save();render()});
+const listText=()=>{const ids=[...picked].sort((a,b)=>a-b);return PROPERTY+': '+ids.length+' photos selected\n'+ids.map(i=>label(i)+'  ('+P[i-1][1]+')').join('\n')};
+document.getElementById('send').addEventListener('click',()=>{const f=document.getElementById('sendbox');f.hidden=!f.hidden;if(!f.hidden)document.getElementById('sname').focus()});
+document.getElementById('sendbox').addEventListener('submit',async e=>{
+  e.preventDefault();const t=document.getElementById('toast'),b=document.getElementById('sendgo');b.disabled=true;
+  const v=id=>document.getElementById(id).value;
+  const body=new URLSearchParams({'form-name':'proof-selection',property:PROPERTY,name:v('sname'),email:v('semail'),note:v('snote'),count:String(picked.size),selection:listText()});
+  try{const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
+    if(!r.ok)throw 0;document.getElementById('sendbox').hidden=true;t.textContent='Sent. Thanks, we\'ll take it from here.'}
+  catch(err){t.textContent='Couldn\'t send. Press Copy list and email it to jayce@skyhighphotography.com.au instead.'}
+  b.disabled=false;
+});
+document.getElementById('copy').addEventListener('click',async()=>{
+  const ids=[...picked].sort((a,b)=>a-b);
+  const txt=PROPERTY+': '+ids.length+' photos selected\n'+ids.map(i=>label(i)+'  ('+P[i-1][1]+')').join('\n');
+  const box=document.getElementById('listbox'),ta=document.getElementById('listtext'),t=document.getElementById('toast');
+  ta.value=txt;
+  try{await navigator.clipboard.writeText(txt);t.textContent='Copied. Paste it into your email.';box.hidden=true}
+  catch(e){box.hidden=false;ta.focus();ta.select();t.textContent='Select the text below and copy it.'}
+  setTimeout(()=>t.textContent='',4000);
+});
+/* lightbox */
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');let lbIdx=-1;
+function openLb(k){if(k<0)return;lbIdx=k;lb.hidden=false;showLb();document.getElementById('lbclose').focus()}
+function showLb(){const p=view[lbIdx];lbimg.src=src(p[0]);lbimg.alt='Rockpool Hamilton, photo '+p[0];
+  document.getElementById('lbnum').textContent=label(p[0])+'  ·  '+(lbIdx+1)+' of '+view.length;lbSync()}
+function lbSync(){if(lbIdx<0)return;const on=picked.has(view[lbIdx][0]);const b=document.getElementById('lbpick');b.classList.toggle('on',on);b.textContent=on?'♥ Selected':'♡ Select'}
+function closeLb(){lb.hidden=true;lbIdx=-1;if(filter==='p')render()}
+const step=d=>{lbIdx=(lbIdx+d+view.length)%view.length;showLb()};
+document.getElementById('lbprev').onclick=()=>step(-1);
+document.getElementById('lbnext').onclick=()=>step(1);
+document.getElementById('lbclose').onclick=closeLb;
+document.getElementById('lbpick').onclick=()=>toggle(view[lbIdx][0]);
+lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('stage'))closeLb()});
+document.addEventListener('keydown',e=>{if(lbIdx<0)return;
+  if(e.key==='Escape')closeLb();else if(e.key==='ArrowRight')step(1);else if(e.key==='ArrowLeft')step(-1);
+  else if(e.key===' '||e.key.toLowerCase()==='s'){e.preventDefault();toggle(view[lbIdx][0])}});
+let tx=null;lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)step(dx<0?1:-1);tx=null});
+document.addEventListener('contextmenu',e=>{if(e.target.closest('.frame,.lb .stage'))e.preventDefault()});
+render();
+</script>
+
+</body></html>
