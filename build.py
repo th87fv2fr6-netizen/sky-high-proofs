@@ -9,7 +9,7 @@ Each shoot is one JSON file in shoots/:
     "property": "3/39 Globe St, Ashgrove",      # first line of the client's selection list
     "autohdr_listing": "3/39 Globe St Ashgrove, QLD, Australia",
     "shoot_id": "2dfcc1ce-...",                 # AutoHDR photoshoot id (CloudFront folder)
-    "photos": [["DSC04436.jpg", 800, 534, "g"], ...]   # file, width, height, g=ground a=aerial
+    "photos": [["DSC04436.jpg", 800, 534, "g"], ...]   # file, width, height, g=ground a=aerial h=headshot
   }
 
 Photos are shown straight from AutoHDR's preview server, so nothing is copied.
@@ -52,6 +52,11 @@ def page(sh, base):
     t = rep(t, '<link rel="preconnect" href="https://fonts.googleapis.com">',
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://d12d7k64f4jt1d.cloudfront.net">')
     t = rep(t, 'src="logo.png"', 'src="/logo.png"')
+    if any(p[3] == 'h' for p in photos):
+        t = rep(t, '<button class="tab" data-f="g" aria-pressed="false">',
+                '<button class="tab" data-f="h" aria-pressed="false">Headshots<span class="n" id="n-h"></span></button>\n<button class="tab" data-f="g" aria-pressed="false">')
+        t = rep(t, "document.getElementById('n-g').textContent=P.filter(p=>p[4]==='g').length;",
+                "document.getElementById('n-g').textContent=P.filter(p=>p[4]==='g').length;document.getElementById('n-h').textContent=P.filter(p=>p[4]==='h').length;")
     if not any(p[3] == 'a' for p in photos):
         t = rep(t, '<button class="tab" data-f="g" aria-pressed="false">Interior &amp; exterior<span class="n" id="n-g"></span></button>\n', '')
         t = rep(t, '<button class="tab" data-f="a" aria-pressed="false">Aerial<span class="n" id="n-a"></span></button>\n', '')
