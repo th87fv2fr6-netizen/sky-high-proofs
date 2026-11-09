@@ -52,6 +52,10 @@ def page(sh, base):
     t = rep(t, '<link rel="preconnect" href="https://fonts.googleapis.com">',
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://d12d7k64f4jt1d.cloudfront.net">')
     t = rep(t, 'src="logo.png"', 'src="/logo.png"')
+    if sh.get('layout') == 'rows':   # fill left-to-right so "All" reads in category order
+        t = rep(t, '.grid{columns:4 280px;column-gap:12px;padding-block:18px}',
+                '.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;align-items:start;padding-block:18px}')
+        t = rep(t, '.card{break-inside:avoid;margin-bottom:12px;', '.card{break-inside:avoid;margin-bottom:0;')
     if any(p[3] == 'h' for p in photos):
         t = rep(t, '<button class="tab" data-f="g" aria-pressed="false">',
                 '<button class="tab" data-f="h" aria-pressed="false">Headshots<span class="n" id="n-h"></span></button>\n<button class="tab" data-f="g" aria-pressed="false">')
