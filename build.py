@@ -57,6 +57,10 @@ def page(sh, base):
         t = rep(t, '.grid{columns:4 280px;column-gap:12px;padding-block:18px}',
                 '.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;align-items:start;padding-block:18px}')
         t = rep(t, '.card{break-inside:avoid;margin-bottom:12px;', '.card{break-inside:avoid;margin-bottom:0;')
+        # start the drone shots on a fresh row instead of sharing the last interior row
+        t = rep(t, 'function cardHTML(p){const [i,n,w,h]=p;return `<figure class="card${',
+                'function cardHTML(p){const [i,n,w,h]=p;return `<figure class="card${p[4]===\'a\'?\' aerial\':\'\'}${')
+        t = rep(t, '.card{break-inside:avoid;margin-bottom:0;', '.card:not(.aerial)+.card.aerial{grid-column-start:1}\n.card{break-inside:avoid;margin-bottom:0;')
     if any(p[3] == 'h' for p in photos):
         t = rep(t, '<button class="tab" data-f="g" aria-pressed="false">',
                 '<button class="tab" data-f="h" aria-pressed="false">Headshots<span class="n" id="n-h"></span></button>\n<button class="tab" data-f="g" aria-pressed="false">')

@@ -46,6 +46,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tab .n{font-family:var(--mono);font-size:12px;opacity:.7;margin-left:4px}
 .tab:focus-visible,.heart:focus-visible,.btn:focus-visible,.frame:focus-visible,.lb button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;align-items:start;padding-block:18px}
+.card:not(.aerial)+.card.aerial{grid-column-start:1}
 .card{break-inside:avoid;margin-bottom:0;position:relative;border-radius:6px;overflow:hidden;background:var(--surface)}
 .frame{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;position:relative}
 .frame::after,.wm::after{content:"";position:absolute;inset:0;pointer-events:none;background:url(/watermark.png) center/52% auto no-repeat;opacity:.55;filter:drop-shadow(0 1px 3px rgba(0,0,0,.55))}
@@ -161,7 +162,7 @@ try{(JSON.parse(localStorage.getItem('11-ironstone-rd-berrinba-picks')||'[]')).f
 const save=()=>{try{localStorage.setItem('11-ironstone-rd-berrinba-picks',JSON.stringify([...picked]))}catch(e){}};
 let filter='all', view=[];
 const grid=document.getElementById('grid');
-function cardHTML(p){const [i,n,w,h]=p;return `<figure class="card${picked.has(i)?' picked':''}" data-i="${i}" style="margin-inline:0">
+function cardHTML(p){const [i,n,w,h]=p;return `<figure class="card${p[4]==='a'?' aerial':''}${picked.has(i)?' picked':''}" data-i="${i}" style="margin-inline:0">
 <button class="frame" data-open="${i}" aria-label="View photo ${i}"><img src="${src(i)}" width="${w}" height="${h}" loading="lazy" referrerpolicy="no-referrer" draggable="false" alt="11 Ironstone Rd, photo ${i}"></button>
 <figcaption class="meta"><span class="num">${label(i)}</span><button class="heart" data-pick="${i}" aria-pressed="${picked.has(i)}" aria-label="Select photo ${i}">${HEART}</button></figcaption></figure>`}
 function render(){
