@@ -35,7 +35,8 @@ def display_name(f):
 
 
 def page(sh, base):
-    photos = sh['photos']
+    # interiors/exteriors first, drone (aerial) shots after; stable within each group
+    photos = sorted(sh['photos'], key=lambda p: p[3] == 'a')
     rows = [[i + 1, display_name(p[0]), p[1], p[2], p[3], p[0]] for i, p in enumerate(photos)]
     t = base.replace('__DATA__', json.dumps(rows, separators=(',', ':')))
     t = rep(t, '<title>The Bonobo Proofs</title>', f"<title>{sh['title']} Proofs</title>")
@@ -52,7 +53,7 @@ def page(sh, base):
     t = rep(t, '<link rel="preconnect" href="https://fonts.googleapis.com">',
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://d12d7k64f4jt1d.cloudfront.net">')
     t = rep(t, 'src="logo.png"', 'src="/logo.png"')
-    if sh.get('layout') == 'rows':   # fill left-to-right so "All" reads in category order
+    if sh.get('layout', 'rows') == 'rows':   # default: fill left-to-right so drone shots sit below the interiors; "masonry" for the old column layout
         t = rep(t, '.grid{columns:4 280px;column-gap:12px;padding-block:18px}',
                 '.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;align-items:start;padding-block:18px}')
         t = rep(t, '.card{break-inside:avoid;margin-bottom:12px;', '.card{break-inside:avoid;margin-bottom:0;')

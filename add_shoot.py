@@ -11,7 +11,7 @@ Rules:
 - A listing already in shoots/ (same shoot_id) is updated only if its photo list changed.
 - A NEW listing is published only once its photo list is identical on two consecutive
   runs (AutoHDR may still be processing). Until then it waits in state.json.
-- Drone files (DJI_...) are tagged aerial; everything else ground.
+- Drone files (DJI_...) are tagged aerial and placed after everything else (ground).
 Prints a JSON summary: {"published": [...], "updated": [...], "waiting": [...]}.
 """
 import json, os, re, sys, glob
@@ -53,6 +53,7 @@ def main():
     out = {'published': [], 'updated': [], 'waiting': []}
     for L in listings:
         photos = [[p[0], int(p[1]), int(p[2]), 'a' if p[0].upper().startswith('DJI') else 'g'] for p in L['photos']]
+        photos.sort(key=lambda p: p[3] == 'a')   # drone shots after interiors
         if not photos:
             continue
         sid = L['shoot_id']
