@@ -37,13 +37,16 @@ def display_name(f):
 def page(sh, base):
     # interiors/exteriors first, drone (aerial) shots after; stable within each group
     photos = sorted(sh['photos'], key=lambda p: p[3] == 'a')
-    rows = [[i + 1, display_name(p[0]), p[1], p[2], p[3], p[0]] for i, p in enumerate(photos)]
+    # a photo may carry its own AutoHDR shoot id as a 5th field (galleries combining several listings,
+    # e.g. a ground library and a drone library); those get a full image URL
+    rows = [[i + 1, display_name(p[0]), p[1], p[2], p[3],
+             (CDN + p[4] + '/processed/' + p[0]) if len(p) > 4 and p[4] else p[0]] for i, p in enumerate(photos)]
     t = base.replace('__DATA__', json.dumps(rows, separators=(',', ':')))
     t = rep(t, '<title>The Bonobo Proofs</title>', f"<title>{sh['title']} Proofs</title>")
     t = rep(t, 'Photo proofs · Shot 31 Oct 2026', sh.get('eyebrow', 'Photo proofs'))
     t = rep(t, '<h1>The Bonobo</h1>', f"<h1>{sh['title']}</h1>")
     t = rep(t, '116 Jonson St, Byron Bay NSW 2481', sh['addr'])
-    t = rep(t, "const src=i=>'img/bonobo-'+String(i).padStart(3,'0')+'.jpg';", "const src=i=>BASE+P[i-1][5];")
+    t = rep(t, "const src=i=>'img/bonobo-'+String(i).padStart(3,'0')+'.jpg';", "const src=i=>/^https?:/.test(P[i-1][5])?P[i-1][5]:BASE+P[i-1][5];")
     t = t.replace("'bonobo-picks'", f"'{sh['slug']}-picks'")
     t = rep(t, 'alt="The Bonobo, photo ${i}"', f'alt="{sh["title"]}, photo ${{i}}"')
     t = rep(t, "lbimg.alt='The Bonobo, photo '", f"lbimg.alt='{sh['title']}, photo '")
