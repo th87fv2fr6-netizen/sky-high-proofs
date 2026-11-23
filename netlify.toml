@@ -1,2 +1,8 @@
 [build]
   publish = "site"
+
+# 108 Central Ave was booked under the wrong number; the house is 110
+[[redirects]]
+  from = "/110-central-ave-sherwood/*"
+  to = "/108-central-ave-sherwood/:splat"
+  status = 200
